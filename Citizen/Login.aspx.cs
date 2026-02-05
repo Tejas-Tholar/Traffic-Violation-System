@@ -11,26 +11,28 @@ namespace Traffic_Violation_Detection_System
             SqlConnection con = new SqlConnection(
                 ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
 
-            string q = "SELECT Email FROM Users WHERE Email=@e AND Password=@p";
-
+            string q = "SELECT * FROM Users WHERE Email=@e AND Password=@p";
             SqlCommand cmd = new SqlCommand(q, con);
 
             cmd.Parameters.AddWithValue("@e", txtEmail.Text);
             cmd.Parameters.AddWithValue("@p", txtPassword.Text);
 
             con.Open();
-            object result = cmd.ExecuteScalar();
-            con.Close();
+            SqlDataReader dr = cmd.ExecuteReader();
 
-            if (result != null)
+            if (dr.Read())
             {
-                Session["UserEmail"] = txtEmail.Text;
+                Session["UserID"] = dr["UserID"].ToString(); // store user id
+                Session["UserName"] = dr["Name"].ToString();
+
                 Response.Redirect("ReportViolation.aspx");
             }
             else
             {
-                lblMsg.Text = "Invalid login!";
+                lblMsg.Text = "Invalid Email or Password";
             }
+
+            con.Close();
         }
     }
 }
