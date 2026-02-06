@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Traffic_Violation_Detection_System.Admin
 {
@@ -11,7 +8,38 @@ namespace Traffic_Violation_Detection_System.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                LoadStats();
+        }
 
+        private void LoadStats()
+        {
+            SqlConnection con = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
+
+            con.Open();
+
+            lblTotal.Text = new SqlCommand(
+                "SELECT COUNT(*) FROM Reports", con).ExecuteScalar().ToString();
+
+            lblPending.Text = new SqlCommand(
+                "SELECT COUNT(*) FROM Reports WHERE Status='Pending'", con).ExecuteScalar().ToString();
+
+            lblApproved.Text = new SqlCommand(
+                "SELECT COUNT(*) FROM Reports WHERE Status='Approved'", con).ExecuteScalar().ToString();
+
+            lblRejected.Text = new SqlCommand(
+                "SELECT COUNT(*) FROM Reports WHERE Status='Rejected'", con).ExecuteScalar().ToString();
+
+            lblFineTotal.Text = new SqlCommand(
+                "SELECT ISNULL(SUM(FineAmount),0) FROM Reports WHERE Status='Approved'", con).ExecuteScalar().ToString();
+
+            con.Close();
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            LoadStats();
         }
     }
 }
