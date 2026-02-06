@@ -53,10 +53,14 @@ namespace Traffic_Violation_Detection_System.Admin
             SqlConnection con = new SqlConnection(
                 ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
 
-            string q = "UPDATE Reports SET Status=@s WHERE ReportId=@id";
+            string q = "UPDATE Reports SET Status=@s, FineAmount=@f WHERE ReportId=@id";
 
+            // Create command FIRST
             SqlCommand cmd = new SqlCommand(q, con);
+
+            // Add parameters ONCE
             cmd.Parameters.AddWithValue("@s", ddlStatus.Text);
+            cmd.Parameters.AddWithValue("@f", txtFine.Text);
             cmd.Parameters.AddWithValue("@id", id);
 
             con.Open();
@@ -65,6 +69,7 @@ namespace Traffic_Violation_Detection_System.Admin
 
             lblMsg.Text = "Status Updated!";
         }
+
 
     }
 }

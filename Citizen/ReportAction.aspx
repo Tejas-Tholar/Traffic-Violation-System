@@ -24,6 +24,10 @@
         Proof Image:<br />
         <asp:Image ID="imgProof" runat="server" Width="300px" />
         <br /><br />
+        
+        Fine Amount:
+        <asp:TextBox ID="txtFine" runat="server"></asp:TextBox>
+        <br /><br />
 
 
     Status:

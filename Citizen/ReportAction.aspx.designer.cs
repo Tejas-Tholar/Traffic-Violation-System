@@ -60,6 +60,15 @@ namespace Traffic_Violation_Detection_System.Admin
         protected global::System.Web.UI.WebControls.Image imgProof;
 
         /// <summary>
+        /// txtFine control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFine;
+
+        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>
