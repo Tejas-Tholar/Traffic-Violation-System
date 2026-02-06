@@ -72,10 +72,10 @@
     <Content Include="Admin\ReportAction.aspx" />
     <Content Include="Admin\ViewReports.aspx" />
     <Content Include="Citizen\Login.aspx" />
+    <Content Include="Citizen\MyReports.aspx" />
     <Content Include="Citizen\Register.aspx" />
     <Content Include="Citizen\ReportAction.aspx" />
     <Content Include="Citizen\ReportViolation.aspx" />
-    <Content Include="Citizen\TrackStatus.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -93,6 +93,13 @@
     </Compile>
     <Compile Include="Citizen\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Citizen\MyReports.aspx.cs">
+      <DependentUpon>MyReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Citizen\MyReports.aspx.designer.cs">
+      <DependentUpon>MyReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Citizen\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
