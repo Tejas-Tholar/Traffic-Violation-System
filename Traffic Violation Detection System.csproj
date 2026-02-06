@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\AdminLogin.aspx" />
-    <Content Include="Admin\ReportAction.aspx" />
     <Content Include="Admin\ViewReports.aspx" />
     <Content Include="Citizen\Login.aspx" />
     <Content Include="Citizen\MyReports.aspx" />
@@ -86,6 +85,13 @@
     </Compile>
     <Compile Include="Admin\AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ViewReports.aspx.cs">
       <DependentUpon>ViewReports.aspx</DependentUpon>

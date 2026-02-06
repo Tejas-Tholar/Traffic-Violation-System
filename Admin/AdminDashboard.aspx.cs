@@ -10,6 +10,12 @@ namespace Traffic_Violation_Detection_System.Admin
         {
             if (!IsPostBack)
                 LoadStats();
+
+            if (Session["AdminID"] == null)
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
+
         }
 
         private void LoadStats()
