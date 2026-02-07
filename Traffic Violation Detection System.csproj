@@ -73,7 +73,7 @@
     <Content Include="Citizen\Login.aspx" />
     <Content Include="Citizen\MyReports.aspx" />
     <Content Include="Citizen\Register.aspx" />
-    <Content Include="Citizen\ReportAction.aspx" />
+    <Content Include="Admin\ReportAction.aspx" />
     <Content Include="Citizen\ReportViolation.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -121,11 +121,11 @@
     <Compile Include="Citizen\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Citizen\ReportAction.aspx.cs">
+    <Compile Include="Admin\ReportAction.aspx.cs">
       <DependentUpon>ReportAction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Citizen\ReportAction.aspx.designer.cs">
+    <Compile Include="Admin\ReportAction.aspx.designer.cs">
       <DependentUpon>ReportAction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Citizen\ReportViolation.aspx.cs">
