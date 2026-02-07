@@ -12,10 +12,10 @@
         <asp:BoundField DataField="ViolationType" HeaderText="Violation" />
         <asp:BoundField DataField="Status" HeaderText="Status" />
 
-        <asp:HyperLinkField 
+        <asp:HyperLinkField
             Text="Take Action"
             DataNavigateUrlFields="ReportId"
-            DataNavigateUrlFormatString="ReportAction.aspx?id={0}" />
+            DataNavigateUrlFormatString="../Citizen/ReportAction.aspx?id={0}" />
     </Columns>
 </asp:GridView>
 
