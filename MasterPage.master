@@ -1,10 +1,38 @@
-﻿<!DOCTYPE html>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Traffic_Violation_Detection_System.MasterPage" %>
+
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server"></asp:ContentPlaceHolder>
+    </title>
+
+    <link href="Styles/site.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
+
+    <div class="bg-shape1"></div>
+    <div class="bg-shape2"></div>
+    <div class="bg-shape3"></div>
+
+    <form id="form1" runat="server">
+
+        <div class="navbar">
+            <div class="brand">Traffic Violation System</div>
+
+            <div class="nav-links">
+                <a href="Home.aspx">Home</a>
+                <a href="Login.aspx">Login</a>
+                <a href="Register.aspx">Register</a>
+                <a href="TrackStatus.aspx">Track Status</a>
+            </div>
+        </div>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+
+    </form>
 
 </body>
 </html>

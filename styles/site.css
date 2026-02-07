@@ -1,0 +1,315 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #0b1220;
+    color: white;
+    min-height: 100vh;
+}
+
+.bg-shape1 {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: rgba(37, 99, 235, 0.35);
+    border-radius: 50%;
+    top: -120px;
+    left: -120px;
+    filter: blur(90px);
+    z-index: -10;
+}
+
+.bg-shape2 {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: rgba(6, 182, 212, 0.30);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -150px;
+    filter: blur(100px);
+    z-index: -10;
+}
+
+.navbar {
+    width: 100%;
+    padding: 18px 40px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+.page-container {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.auth-card {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 40px 35px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 18px 45px rgba(0, 0, 0, 0.55);
+    text-align: center;
+}
+
+    .auth-card h2 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 800;
+    }
+
+    .auth-card p {
+        margin-top: 10px;
+        margin-bottom: 25px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.6;
+    }
+
+.input-box {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    outline: none;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+    .input-box:focus {
+        border-color: rgba(6, 182, 212, 0.7);
+        box-shadow: 0px 0px 12px rgba(6, 182, 212, 0.25);
+    }
+
+    .input-box::placeholder {
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+.btn-main {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .btn-main:hover {
+        background: #1d4ed8;
+    }
+
+.btn-secondary {
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    background: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+.message {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffb4b4;
+}
+
+.link-text {
+    margin-top: 18px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+    .link-text a {
+        color: #38bdf8;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+        .link-text a:hover {
+            text-decoration: underline;
+        }
+
+/* HOME PAGE */
+.home-main {
+    min-height: calc(100vh - 70px);
+    padding: 60px 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.home-content {
+    width: 65%;
+}
+
+    .home-content h1 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 900;
+    }
+
+.home-desc {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 750px;
+}
+
+.home-features {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    max-width: 750px;
+}
+
+.feature-box {
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+    .feature-box h3 {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    .feature-box p {
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.70);
+    }
+
+.home-popup-card {
+    width: 330px;
+    padding: 35px 28px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 18px 45px rgba(0, 0, 0, 0.55);
+    height: fit-content;
+    position: sticky;
+    top: 110px;
+    text-align: center;
+}
+
+    .home-popup-card h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .home-popup-card p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.70);
+    }
+
+@media(max-width: 950px) {
+    .home-main {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .home-content {
+        width: 100%;
+        text-align: center;
+    }
+
+        .home-content h1 {
+            font-size: 34px;
+        }
+
+    .home-features {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .home-popup-card {
+        width: 95%;
+        position: relative;
+        top: auto;
+    }
+
+    .btn-main, .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media(max-width: 650px) {
+    .navbar {
+        padding: 16px 18px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .auth-card {
+        width: 95%;
+        padding: 32px 26px;
+    }
+}

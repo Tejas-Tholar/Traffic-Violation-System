@@ -71,11 +71,13 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\ReportAction.aspx" />
     <Content Include="Admin\ViewReports.aspx" />
+    <Content Include="Citizen\Home.aspx" />
     <Content Include="Citizen\Login.aspx" />
     <Content Include="Citizen\Register.aspx" />
     <Content Include="Citizen\ReportViolation.aspx" />
     <Content Include="Citizen\TrackStatus.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +87,13 @@
     </Compile>
     <Compile Include="Admin\ViewReports.aspx.designer.cs">
       <DependentUpon>ViewReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Citizen\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Citizen\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Citizen\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -110,6 +119,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +139,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Citizen\Uploads\" />
     <Folder Include="Models\" />
-    <Folder Include="Styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,36 +1,30 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"
-    CodeBehind="Login.aspx.cs"
-    Inherits="Traffic_Violation_Detection_System.Login" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Traffic_Violation_Detection_System.Login" %>
 
-<!DOCTYPE html>
-<html>
-<head runat="server">
-    <title>Citizen Login</title>
-</head>
-<body>
-<form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+Login - Traffic Violation System
+</asp:Content>
 
-    <h2>Citizen Login</h2>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    Email:<br />
-    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-    <br /><br />
+    <div class="page-container">
+        <div class="auth-card">
 
-    Password:<br />
-    <asp:TextBox ID="txtPassword" runat="server"
-        TextMode="Password"></asp:TextBox>
-    <br /><br />
+            <h2>Login</h2>
+            <p>Enter your credentials to continue</p>
 
-    <asp:Button ID="btnLogin" runat="server"
-        Text="Login"
-        OnClick="btnLogin_Click" />
-    <br /><br />
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="input-box" Placeholder="Enter Email"></asp:TextBox>
 
-    <asp:Label ID="lblMsg" runat="server"></asp:Label>
-    <br /><br />
+            <asp:TextBox ID="txtPassword" runat="server" CssClass="input-box" TextMode="Password" Placeholder="Enter Password"></asp:TextBox>
 
-    <a href="Register.aspx">Create Account</a>
+            <asp:Button ID="btnLogin" runat="server" CssClass="btn-main" Text="Login" OnClick="btnLogin_Click" />
 
-</form>
-</body>
-</html>
+            <asp:Label ID="lblMsg" runat="server" CssClass="message"></asp:Label>
+
+            <div class="link-text">
+                Don't have an account? <a href="Register.aspx">Register</a>
+            </div>
+
+        </div>
+    </div>
+
+</asp:Content>

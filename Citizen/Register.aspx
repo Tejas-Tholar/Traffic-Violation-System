@@ -1,45 +1,34 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"
-    CodeBehind="Register.aspx.cs"
-    Inherits="Traffic_Violation_Detection_System.Register" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Traffic_Violation_Detection_System.Register" %>
 
-<!DOCTYPE html>
-<html>
-<head runat="server">
-    <title>Citizen Registration</title>
-</head>
-<body>
-<form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+Register - Traffic Violation System
+</asp:Content>
 
-    <h2>Citizen Registration</h2>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    Name:<br />
-    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-    <br /><br />
+    <div class="page-container">
+        <div class="auth-card">
 
-    Email:<br />
-    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-    <br /><br />
+            <h2>Create Account</h2>
+            <p>Register to submit traffic violation reports</p>
 
-    Password:<br />
-    <asp:TextBox ID="txtPassword" runat="server"
-        TextMode="Password"></asp:TextBox>
-    <br /><br />
+            <asp:TextBox ID="txtName" runat="server" CssClass="input-box" Placeholder="Full Name"></asp:TextBox>
 
-    Confirm Password:<br />
-    <asp:TextBox ID="txtConfirm" runat="server"
-        TextMode="Password"></asp:TextBox>
-    <br /><br />
+            <asp:TextBox ID="txtEmail" runat="server" CssClass="input-box" Placeholder="Email Address"></asp:TextBox>
 
-    <asp:Button ID="btnRegister" runat="server"
-        Text="Register"
-        OnClick="btnRegister_Click" />
-    <br /><br />
+            <asp:TextBox ID="txtPassword" runat="server" CssClass="input-box" TextMode="Password" Placeholder="Password"></asp:TextBox>
 
-    <asp:Label ID="lblMsg" runat="server"></asp:Label>
-    <br /><br />
+            <asp:TextBox ID="txtConfirm" runat="server" CssClass="input-box" TextMode="Password" Placeholder="Confirm Password"></asp:TextBox>
 
-    <a href="Login.aspx">Already have account? Login</a>
+            <asp:Button ID="btnRegister" runat="server" CssClass="btn-main" Text="Register" OnClick="btnRegister_Click" />
 
-</form>
-</body>
-</html>
+            <asp:Label ID="lblMsg" runat="server" CssClass="message"></asp:Label>
+
+            <div class="link-text">
+                Already have an account? <a href="Login.aspx">Login</a>
+            </div>
+
+        </div>
+    </div>
+
+</asp:Content>
