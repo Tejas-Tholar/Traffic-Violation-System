@@ -26,7 +26,7 @@
 
         <div class="admin-page">
 
-            <div class="admin-card">
+            <div class="admin-action">
 
                 <h2>Report Action</h2>
                 <p>Review report details, verify evidence, and update fine and status.</p>

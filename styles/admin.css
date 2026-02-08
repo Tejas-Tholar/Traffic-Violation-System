@@ -72,7 +72,7 @@ body {
         width: 14px;
         height: 14px;
         border-radius: 4px;
-        background: repeating-linear-gradient( 45deg, #0b1220, #0b1220 6px, #facc15 6px, #facc15 12px );
+        background: repeating-linear-gradient(45deg, #0b1220, #0b1220 6px, #facc15 6px, #facc15 12px);
         box-shadow: 0px 0px 14px rgba(250,204,21,0.55);
     }
 
@@ -107,7 +107,31 @@ body {
 /* CARD */
 .admin-card {
     width: 100%;
-    max-width: 520px;
+    max-width: 100%;
+    background: rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 42px;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0px 30px 90px rgba(0,0,0,0.75);
+    backdrop-filter: blur(18px);
+    position: relative;
+    overflow: hidden;
+}
+.admin-action {
+    width: 100%;
+    max-width: 50%;
+    background: rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 42px;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0px 30px 90px rgba(0,0,0,0.75);
+    backdrop-filter: blur(18px);
+    position: relative;
+    overflow: hidden;
+}
+.admin-login {
+    width: 100%;
+    max-width: 35%;
     background: rgba(255,255,255,0.06);
     border-radius: 24px;
     padding: 42px;
@@ -118,7 +142,6 @@ body {
     overflow: hidden;
 }
 
-    /* STRIP LINE ON TOP */
     .admin-card::before {
         content: "";
         position: absolute;
@@ -126,10 +149,9 @@ body {
         left: 0;
         height: 7px;
         width: 100%;
-        background: repeating-linear-gradient( 90deg, #0b1220, #0b1220 18px, #facc15 18px, #facc15 36px );
+        background: repeating-linear-gradient(90deg, #0b1220, #0b1220 18px, #facc15 18px, #facc15 36px);
     }
 
-    /* HEADING */
     .admin-card h2 {
         font-size: 30px;
         font-weight: 950;
@@ -179,6 +201,25 @@ body {
         background: rgba(255,255,255,0.07);
     }
 
+/* DROPDOWN FIX */
+.admin-dropdown {
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: white !important;
+    border: 1px solid rgba(250,204,21,0.40) !important;
+}
+
+.admin-action {
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: white !important;
+    border: 1px solid rgba(250,204,21,0.40) !important;
+}
+
+    .admin-dropdown option {
+        background: #0b1220 !important;
+        color: white !important;
+        font-weight: 900 !important;
+    }
+
 /* BUTTON */
 .admin-btn {
     width: 100%;
@@ -209,21 +250,30 @@ body {
     color: #22c55e;
 }
 
-/* TABLE BOX */
+/* TABLE BOX (HORIZONTAL SCROLL ONLY) */
 .admin-table-box {
     width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.12);
     margin-top: 22px;
     background: rgba(255,255,255,0.04);
 }
 
+/* TABLE */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+    table-layout: auto;
+    min-width: 950px;
 }
+
+    .admin-table th,
+    .admin-table td {
+        white-space: nowrap;
+    }
 
     .admin-table th {
         padding: 14px;
@@ -361,6 +411,8 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* DASHBOARD */
 .dashboard-container {
     width: 100%;
     max-width: 1100px;

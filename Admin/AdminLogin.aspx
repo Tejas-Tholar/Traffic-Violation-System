@@ -27,7 +27,7 @@
 
         <div class="admin-page">
 
-            <div class="admin-card">
+            <div class="admin-login">
 
                 <div class="traffic-signal">
                     <div class="signal-light red"></div>
