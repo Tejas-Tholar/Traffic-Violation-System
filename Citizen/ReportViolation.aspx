@@ -62,7 +62,7 @@
                     <p class="form-subtext">Fill all required details correctly.</p>
 
                     <label class="white-label">Vehicle Number</label>
-                    <asp:TextBox ID="txtVehicleNo" runat="server" CssClass="white-input" Placeholder="MH12AB1234"></asp:TextBox>
+                    <asp:TextBox ID="txtVehicleNo" runat="server" CssClass="white-input" Placeholder="MH00AB0000"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
                         ControlToValidate="txtVehicleNo"
                         CssClass="white-error"

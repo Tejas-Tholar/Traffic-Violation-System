@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 
 namespace Traffic_Violation_Detection_System.Citizen
 {
@@ -12,7 +11,7 @@ namespace Traffic_Violation_Detection_System.Citizen
         {
             if (Session["UserID"] == null)
             {
-                Response.Redirect("../Login.aspx");
+                Response.Redirect("~/Citizen/Login.aspx");
             }
 
             if (!IsPostBack)
@@ -24,11 +23,12 @@ namespace Traffic_Violation_Detection_System.Citizen
             SqlConnection con = new SqlConnection(
                 ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
 
-            SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT VehicleNo, Location, ViolationType, Status, FineAmount " +
-                "FROM Reports WHERE UserID=@uid",
-                con);
+            string q = @"SELECT VehicleNo, Location, ViolationType,
+                        Status, FineAmount
+                 FROM Reports
+                 WHERE UserID = @uid";
 
+            SqlDataAdapter da = new SqlDataAdapter(q, con);
             da.SelectCommand.Parameters.AddWithValue("@uid", Session["UserID"]);
 
             DataTable dt = new DataTable();
@@ -37,6 +37,5 @@ namespace Traffic_Violation_Detection_System.Citizen
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
-
     }
 }

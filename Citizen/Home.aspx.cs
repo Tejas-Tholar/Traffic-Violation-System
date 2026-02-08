@@ -6,7 +6,7 @@ namespace Traffic_Violation_Detection_System
     {
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Citizen/Login.aspx");
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

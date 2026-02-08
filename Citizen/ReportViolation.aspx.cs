@@ -33,9 +33,9 @@ namespace Traffic_Violation_Detection_System
 
             string q = @"INSERT INTO Reports
                         (VehicleNo, Location, ViolationType,
-                         Description, ProofPath, Status)
+                         Description, ProofPath, Status, UserID)
                         VALUES
-                        (@v, @l, @t, @d, @p, 'Pending')";
+                        (@v, @l, @t, @d, @p, 'Pending', @uid)";
 
             SqlCommand cmd = new SqlCommand(q, con);
 
@@ -44,6 +44,8 @@ namespace Traffic_Violation_Detection_System
             cmd.Parameters.AddWithValue("@t", violations);
             cmd.Parameters.AddWithValue("@d", txtDescription.Text);
             cmd.Parameters.AddWithValue("@p", path);
+            cmd.Parameters.AddWithValue("@uid", Session["UserID"]);
+
 
             con.Open();
             cmd.ExecuteNonQuery();
