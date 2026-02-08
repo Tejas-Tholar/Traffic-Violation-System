@@ -18,19 +18,21 @@ namespace Traffic_Violation_Detection_System
                 ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
 
             string q = "INSERT INTO Users(Name, Email, Password, Role) " +
-                       "VALUES(@n,@e,@p,'Citizen')";
+                       "VALUES(@n,@e,@p,'Citizen'); SELECT SCOPE_IDENTITY();";
 
             SqlCommand cmd = new SqlCommand(q, con);
-
             cmd.Parameters.AddWithValue("@n", txtName.Text);
             cmd.Parameters.AddWithValue("@e", txtEmail.Text);
             cmd.Parameters.AddWithValue("@p", txtPassword.Text);
 
             con.Open();
-            cmd.ExecuteNonQuery();
+            int newUserId = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
 
-            lblMsg.Text = "Registration Successful!";
+            Session["UserID"] = newUserId;
+
+
+            Response.Redirect("ReportViolation.aspx");
         }
     }
 }
