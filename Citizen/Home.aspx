@@ -6,51 +6,48 @@ Traffic Violation System
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="home-main">
+    <div class="home-hero" style="min-height:calc(100vh - 80px); align-items:center;">
 
-        <div class="home-content">
+        <div class="home-left" style="width:100%;">
 
-            <h1>Traffic Violation System</h1>
+            <div class="home-badge">
+                <span></span>
+                Smart Road Safety Portal
+            </div>
+
+            <h1>
+                Traffic Violation <strong>Detection System</strong>
+            </h1>
 
             <p class="home-desc">
-                A web-based traffic monitoring portal that allows users to report violations,
-                upload evidence, and track the verification and fine issuance process securely.
+                A secure web-based portal where users can report traffic violations, upload evidence,
+                and help authorities verify incidents for fine generation. This system improves transparency,
+                accountability, and safety on roads by enabling faster reporting and monitoring.
             </p>
 
             <div class="home-features">
 
                 <div class="feature-box">
-                    <h3>Report Violations</h3>
-                    <p>Submit vehicle number, violation type, and location details in one report.</p>
+                    <h3>Violation Reporting</h3>
+                    <p>Submit complete violation reports with vehicle number, location, and violation type.</p>
                 </div>
 
                 <div class="feature-box">
-                    <h3>Upload Evidence</h3>
-                    <p>Attach photo proof to make the complaint valid and reliable.</p>
+                    <h3>Proof Upload</h3>
+                    <p>Upload photo evidence to make reports more reliable and verifiable.</p>
                 </div>
 
                 <div class="feature-box">
-                    <h3>Track Status</h3>
-                    <p>Check whether the violation report is pending, verified, or fine issued.</p>
+                    <h3>Status Monitoring</h3>
+                    <p>Reports are tracked through Pending, Approved, or Rejected verification process.</p>
                 </div>
 
                 <div class="feature-box">
-                    <h3>Fine Issuance</h3>
-                    <p>Authorities can issue fines based on violation type and predefined rules.</p>
+                    <h3>Fine Management</h3>
+                    <p>Admin can issue fines based on violation rules, report type, and verification status.</p>
                 </div>
 
             </div>
-
-        </div>
-
-        <div class="home-popup-card">
-
-            <h2>Portal Access</h2>
-            <p>Login or Register to continue</p>
-
-            <asp:Button ID="btnLogin" runat="server" CssClass="btn-main" Text="Login" OnClick="btnLogin_Click" />
-
-            <asp:Button ID="btnRegister" runat="server" CssClass="btn-secondary" Text="Register" OnClick="btnRegister_Click" />
 
         </div>
 

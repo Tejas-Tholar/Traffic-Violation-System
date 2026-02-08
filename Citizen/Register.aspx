@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Traffic_Violation_Detection_System.Register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-Register - Traffic Violation System
+Register
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-container">
+
         <div class="auth-card">
 
             <h2>Create Account</h2>
-            <p>Register to submit traffic violation reports</p>
+            <p>Register to report traffic violations securely.</p>
 
             <asp:TextBox ID="txtName" runat="server" CssClass="input-box" Placeholder="Full Name"></asp:TextBox>
 
@@ -25,10 +26,12 @@ Register - Traffic Violation System
             <asp:Label ID="lblMsg" runat="server" CssClass="message"></asp:Label>
 
             <div class="link-text">
-                Already have an account? <a href="Login.aspx">Login</a>
+                Already have an account?
+                <a href="Login.aspx">Login</a>
             </div>
 
         </div>
+
     </div>
 
 </asp:Content>

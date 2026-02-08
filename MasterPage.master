@@ -1,15 +1,17 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Traffic_Violation_Detection_System.MasterPage" %>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <title>
         <asp:ContentPlaceHolder ID="TitleContent" runat="server"></asp:ContentPlaceHolder>
     </title>
 
-    <link href="Styles/site.css" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/Styles/site.css") %>" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
 </head>
 <body>
 
@@ -20,13 +22,15 @@
     <form id="form1" runat="server">
 
         <div class="navbar">
-            <div class="brand">Traffic Violation System</div>
+            <div class="brand">
+                <span class="brand-dot"></span>
+                Traffic Violation System
+            </div>
 
             <div class="nav-links">
-                <a href="Home.aspx">Home</a>
-                <a href="Login.aspx">Login</a>
-                <a href="Register.aspx">Register</a>
-                <a href="TrackStatus.aspx">Track Status</a>
+                <a href="<%= ResolveUrl("~/Citizen/Home.aspx") %>">Home</a>
+                <a href="<%= ResolveUrl("~/Citizen/Login.aspx") %>">Login</a>
+                <a href="<%= ResolveUrl("~/Citizen/Register.aspx") %>">Register</a>
             </div>
         </div>
 
