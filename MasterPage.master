@@ -27,11 +27,20 @@
                 Traffic Violation System
             </div>
 
-            <div class="nav-links">
-                <a href="<%= ResolveUrl("~/Citizen/Home.aspx") %>">Home</a>
-                <a href="<%= ResolveUrl("~/Citizen/Login.aspx") %>">Login</a>
-                <a href="<%= ResolveUrl("~/Citizen/Register.aspx") %>">Register</a>
+           <div class="nav-links">
+                <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/Citizen/Login.aspx">Login</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Citizen/Register.aspx">Register</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkReports" runat="server" NavigateUrl="~/Citizen/MyReports.aspx">MyReports</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkReport" runat="server" NavigateUrl="~/Citizen/ReportViolation.aspx">Report</asp:HyperLink>
+
+                <asp:HyperLink ID="lnkLogout" runat="server" NavigateUrl="~/Logout.aspx">Logout</asp:HyperLink>
             </div>
+
         </div>
 
         <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>

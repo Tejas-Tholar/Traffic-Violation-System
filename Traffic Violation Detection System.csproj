@@ -72,6 +72,7 @@
     <Content Include="Admin\ViewReports.aspx" />
     <Content Include="Citizen\Home.aspx" />
     <Content Include="Citizen\Login.aspx" />
+    <Content Include="Citizen\Logout.aspx" />
     <Content Include="Citizen\MyReports.aspx" />
     <Content Include="Citizen\Register.aspx" />
     <Content Include="Admin\ReportAction.aspx" />
@@ -81,6 +82,7 @@
     <Content Include="Styles\citizen.css" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminDashboard.aspx.cs">
@@ -118,6 +120,13 @@
     <Compile Include="Citizen\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Citizen\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Citizen\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Citizen\MyReports.aspx.cs">
       <DependentUpon>MyReports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,10 +162,22 @@
       <DependentUpon>MasterPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MasterPage.master" />
+    <Content Include="MasterPage.master">
+      <Generator>MSBuild:Compile</Generator>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

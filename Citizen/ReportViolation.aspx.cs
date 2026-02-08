@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 using System.Web.UI.WebControls;
 
 namespace Traffic_Violation_Detection_System
@@ -51,7 +52,21 @@ namespace Traffic_Violation_Detection_System
             cmd.ExecuteNonQuery();
             con.Close();
 
-            lblMsg.Text = "Report Submitted Successfully!";
+            lblMsg.Text = "Report submitted successfully!";
+
+            // Clear fields
+            txtVehicleNo.Text = "";
+            txtLocation.Text = "";
+            txtDescription.Text = "";
+
+            // Clear checkbox selections
+            foreach (ListItem item in cblViolation.Items)
+            {
+                item.Selected = false;
+            }
+
+
+
         }
     }
 }
