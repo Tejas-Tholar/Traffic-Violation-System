@@ -12,7 +12,7 @@ namespace Traffic_Violation_Detection_System
         {
             if (Session["UserID"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/Citizen/Login.aspx");
             }
         }
         protected void btnSubmit_Click(object sender, EventArgs e)

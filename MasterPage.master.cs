@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace Traffic_Violation_Detection_System
 {
@@ -18,6 +19,17 @@ namespace Traffic_Violation_Detection_System
                 lnkRegister.Visible = true;
                 lnkLogout.Visible = false;
             }
+        }
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+
+            Response.Redirect("~/Citizen/Login.aspx");
+
         }
 
     }

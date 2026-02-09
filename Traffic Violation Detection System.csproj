@@ -72,7 +72,6 @@
     <Content Include="Admin\ViewReports.aspx" />
     <Content Include="Citizen\Home.aspx" />
     <Content Include="Citizen\Login.aspx" />
-    <Content Include="Citizen\Logout.aspx" />
     <Content Include="Citizen\MyReports.aspx" />
     <Content Include="Citizen\Register.aspx" />
     <Content Include="Admin\ReportAction.aspx" />
@@ -119,13 +118,6 @@
     </Compile>
     <Compile Include="Citizen\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Citizen\Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Citizen\Logout.aspx.designer.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Citizen\MyReports.aspx.cs">
       <DependentUpon>MyReports.aspx</DependentUpon>

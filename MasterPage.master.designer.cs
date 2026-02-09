@@ -93,7 +93,7 @@ namespace Traffic_Violation_Detection_System
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogout;
 
         /// <summary>
         /// MainContent control.

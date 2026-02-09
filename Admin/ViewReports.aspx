@@ -20,7 +20,7 @@
             <div class="admin-links">
                 <a href="AdminDashboard.aspx">Dashboard</a>
                 <a href="ViewReports.aspx">View Reports</a>
-                <a href="../Login.aspx" class="admin-logout">Logout</a>
+              <asp:LinkButton ID="lnkLogout" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
             </div>
         </div>
 

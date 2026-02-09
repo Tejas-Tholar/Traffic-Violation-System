@@ -38,7 +38,7 @@
 
                 <asp:HyperLink ID="lnkReport" runat="server" NavigateUrl="~/Citizen/ReportViolation.aspx">Report</asp:HyperLink>
 
-                <asp:HyperLink ID="lnkLogout" runat="server" NavigateUrl="~/Logout.aspx">Logout</asp:HyperLink>
+               <asp:LinkButton ID="lnkLogout" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
             </div>
 
         </div>

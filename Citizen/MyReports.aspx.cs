@@ -24,9 +24,9 @@ namespace Traffic_Violation_Detection_System.Citizen
                 ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
 
             string q = @"SELECT VehicleNo, Location, ViolationType,
-                        Status, FineAmount
-                 FROM Reports
-                 WHERE UserID = @uid";
+                          Status, FineAmount
+                          FROM Reports
+                          WHERE UserID = @uid";
 
             SqlDataAdapter da = new SqlDataAdapter(q, con);
             da.SelectCommand.Parameters.AddWithValue("@uid", Session["UserID"]);

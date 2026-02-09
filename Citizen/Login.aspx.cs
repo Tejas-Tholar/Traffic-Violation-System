@@ -6,6 +6,14 @@ namespace Traffic_Violation_Detection_System
 {
     public partial class Login : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["UserID"] != null)
+            {
+                Response.Redirect("~/Citizen/Home.aspx");
+            }
+        }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(
