@@ -40,7 +40,7 @@ namespace Traffic_Violation_Detection_System.Admin
                 Descrip.Text = dr["Description"].ToString();
                 lblViolation.Text = dr["ViolationType"].ToString();
                 imgProof.ImageUrl = "../Citizen/" + dr["ProofPath"].ToString();
-                
+
             }
 
             con.Close();
@@ -75,8 +75,17 @@ namespace Traffic_Violation_Detection_System.Admin
 
             lblMsg.Text = "Status Updated!";
         }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminDashboard.aspx");
 
-
+        }
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("~/Citizen/Home.aspx");
+        }
     }
 }
 

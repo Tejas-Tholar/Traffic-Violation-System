@@ -32,5 +32,12 @@ namespace Traffic_Violation_Detection_System.Admin
 
             con.Close();
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["AdminID"] != null)
+            {
+                Response.Redirect("AdminDashboard.aspx");
+            }
+        }
     }
 }

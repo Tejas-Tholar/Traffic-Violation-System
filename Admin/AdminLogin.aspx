@@ -21,7 +21,7 @@
 
             <div class="admin-links">
                 <a href="../Citizen/Home.aspx">Home</a>
-                <a href="AdminLogin.aspx">Admin Login</a>
+               
             </div>
         </div>
 
