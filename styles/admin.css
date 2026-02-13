@@ -541,3 +541,241 @@ body {
         grid-column: span 1;
     }
 }
+/* ===========================
+   MOBILE RESPONSIVE ADDON
+   (DO NOT CHANGE OLD CSS)
+   =========================== */
+
+@media (max-width: 1024px) {
+
+    .admin-navbar {
+        padding: 14px 20px;
+    }
+
+    .admin-links {
+        gap: 12px;
+    }
+
+    .admin-card {
+        padding: 30px;
+    }
+
+    .admin-login {
+        max-width: 60%;
+    }
+
+    .admin-action {
+        max-width: 75%;
+    }
+
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Navbar stack */
+    .admin-navbar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    .admin-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+        .admin-links a {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+
+    /* Page spacing */
+    .admin-page {
+        padding: 40px 14px;
+    }
+
+    /* Cards full width */
+    .admin-card,
+    .admin-login,
+    .admin-action {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 26px !important;
+    }
+
+        /* Title smaller */
+        .admin-card h2 {
+            font-size: 24px;
+        }
+
+        .admin-card p {
+            font-size: 13px;
+        }
+
+    /* Grid 1 column */
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Table scroll smooth */
+    .admin-table-box {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-table {
+        min-width: 800px;
+    }
+
+    /* Dashboard */
+    .dashboard-container {
+        padding: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card.full {
+        grid-column: span 1;
+    }
+
+    .stat-value {
+        font-size: 28px;
+    }
+
+    /* Traffic signal reposition */
+    .traffic-signal {
+        top: 14px;
+        right: 14px;
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-navbar {
+        padding: 12px 12px;
+    }
+
+    .admin-brand {
+        font-size: 16px;
+    }
+
+    .admin-card h2 {
+        font-size: 22px;
+    }
+
+    .admin-input,
+    .admin-dropdown {
+        font-size: 13px;
+        padding: 12px;
+    }
+
+    .admin-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .traffic-signal {
+        transform: scale(0.8);
+    }
+}
+.admin-toggle {
+    display: none;
+}
+
+.admin-hamburger {
+    display: none;
+    font-size: 28px;
+    font-weight: 950;
+    cursor: pointer;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.admin-logout {
+    padding: 9px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+    .admin-logout:hover {
+        background: rgba(239,68,68,0.22);
+        border-color: rgba(239,68,68,0.35);
+    }
+
+@media(max-width: 768px) {
+
+    .admin-hamburger {
+        display: block;
+    }
+
+    .admin-navbar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    .admin-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+        .admin-links a {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+    #admin-toggle:checked ~ .admin-links {
+        display: flex;
+    }
+
+    .admin-action,
+    .admin-login,
+    .admin-card {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 26px !important;
+    }
+
+    .admin-table-box {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .admin-table {
+        min-width: 850px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stat-card.full {
+        grid-column: span 1 !important;
+    }
+}

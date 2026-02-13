@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>My Reports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="<%= ResolveUrl("~/Styles/citizen.css") %>" rel="stylesheet" />
 </head>
 <body>
@@ -14,19 +15,28 @@
 
     <form runat="server">
 
+        <!-- NAVBAR -->
         <div class="citizen-navbar">
+
             <div class="citizen-brand">
                 <span></span> Citizen Portal
             </div>
 
+            <!-- HAMBURGER -->
+            <input type="checkbox" id="citizen-toggle" class="citizen-toggle" />
+            <label for="citizen-toggle" class="citizen-hamburger">&#9776;</label>
+
+            <!-- LINKS -->
             <div class="citizen-links">
                 <a href="Home.aspx">Home</a>
                 <a href="ReportViolation.aspx">Report</a>
                 <a href="MyReports.aspx">My Reports</a>
-                <a href="../Login.aspx" class="logout-link">Logout</a>
+                <a href="../Citizen/Login.aspx" class="logout-link">Logout</a>
             </div>
+
         </div>
 
+        <!-- PAGE CONTENT -->
         <div class="citizen-page">
 
             <h2 style="margin:0;font-size:30px;font-weight:950;">My Reports</h2>

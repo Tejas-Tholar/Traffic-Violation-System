@@ -1,7 +1,11 @@
-﻿body {
+﻿* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Segoe UI", sans-serif;
+}
+
+body {
     background: radial-gradient(circle at top left, #22c55e, #0f172a 65%, #020617);
     color: white;
     min-height: 100vh;
@@ -45,13 +49,14 @@
 .citizen-navbar {
     width: 100%;
     padding: 18px 50px;
-    box-sizing: border-box;
     background: rgba(255, 255, 255, 0.06);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(16px);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .citizen-brand {
@@ -74,6 +79,7 @@
 .citizen-links {
     display: flex;
     gap: 22px;
+    align-items: center;
 }
 
     .citizen-links a {
@@ -94,6 +100,7 @@
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
+    display: inline-block;
 }
 
     .logout-link:hover {
@@ -286,12 +293,14 @@
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(18px);
     box-shadow: 0px 25px 70px rgba(0,0,0,0.7);
+    overflow-x: auto;
 }
 
 .report-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+    min-width: 700px;
 }
 
 .table-header th {
@@ -319,14 +328,84 @@
     transition: 0.2s;
 }
 
+/* HAMBURGER MENU */
+.citizen-toggle {
+    display: none;
+}
+
+.citizen-hamburger {
+    display: none;
+}
+
 /* RESPONSIVE */
 @media(max-width: 950px) {
+
+    .citizen-page {
+        padding: 25px 18px;
+    }
+
+    .citizen-navbar {
+        padding: 16px 18px;
+    }
+
+    /* Hide normal menu */
+    .citizen-links {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 100%;
+        right: 18px;
+        width: 220px;
+        padding: 18px;
+        margin-top: 12px;
+        border-radius: 18px;
+        background: rgba(0,0,0,0.70);
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(18px);
+        box-shadow: 0px 25px 60px rgba(0,0,0,0.65);
+        z-index: 99999;
+    }
+
+    /* Hamburger perfectly inside navbar */
+    .citizen-hamburger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+        z-index: 100000;
+    }
+
+    /* Show menu when checked */
+    #citizen-toggle:checked ~ .citizen-links {
+        display: flex;
+    }
+
+    /* Logout full width */
+    .logout-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Report layout */
     .report-wrapper {
         flex-direction: column;
+        gap: 25px;
     }
 
     .report-left {
         width: 100%;
+        padding-top: 0;
     }
 
     .report-form-card {
@@ -340,15 +419,11 @@
 }
 
 @media(max-width: 650px) {
-    .citizen-navbar {
-        padding: 16px 18px;
+    .report-left h2 {
+        font-size: 28px;
     }
 
-    .citizen-links {
-        display: none;
-    }
-
-    .citizen-page {
-        padding: 25px 18px;
+    .report-form-card {
+        padding: 22px;
     }
 }

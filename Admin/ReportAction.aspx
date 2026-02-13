@@ -6,78 +6,85 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Report Action</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="<%= ResolveUrl("~/Styles/admin.css") %>" rel="stylesheet" />
 </head>
 <body>
 
-    <form runat="server">
+    <div class="admin-bg1"></div>
+    <div class="admin-bg2"></div>
+    <div class="admin-bg3"></div>
 
-        <div class="admin-navbar">
-            <div class="admin-brand">
-                <span></span> Admin Panel
-            </div>
+    <div class="admin-navbar">
 
-            <div class="admin-links">
-                <a href="AdminDashboard.aspx">Dashboard</a>
-                <a href="ViewReports.aspx">View Reports</a>
-                <asp:LinkButton ID="lnkLogout" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
-            </div>
+        <div class="admin-brand">
+            <span></span>
+            Admin Panel
         </div>
 
-        <div class="admin-page">
+        <input type="checkbox" id="admin-toggle" class="admin-toggle" />
+        <label for="admin-toggle" class="admin-hamburger">&#9776;</label>
 
-            <div class="admin-action">
+        <div class="admin-links">
+            <a href="AdminDashboard.aspx">Dashboard</a>
+            <a href="ViewReports.aspx">Reports</a>
+            <a href="AdminLogout.aspx" class="admin-logout">Logout</a>
+        </div>
 
-                <h2>Report Action</h2>
-                <p>Review report details, verify evidence, and update fine and status.</p>
+    </div>
 
-                <div class="report-grid">
+    <form runat="server" class="admin-page">
 
-                    <div class="report-item">
-                        <strong>Vehicle Number</strong>
-                        <span><asp:Label ID="lblVehicle" runat="server"></asp:Label></span>
-                    </div>
+        <div class="admin-action">
 
-                    <div class="report-item">
-                        <strong>Location</strong>
-                        <span><asp:Label ID="lblLocation" runat="server"></asp:Label></span>
-                    </div>
+            <h2>Report Action</h2>
+            <p>Verify report proof and update status with fine amount.</p>
 
-                    <div class="report-item">
-                        <strong>Description</strong>
-                        <span><asp:Label ID="Descrip" runat="server"></asp:Label></span>
-                    </div>
+            <div class="report-grid">
 
-                    <div class="report-item">
-                        <strong>Violation Type</strong>
-                        <span><asp:Label ID="lblViolation" runat="server"></asp:Label></span>
-                    </div>
-
+                <div class="report-item">
+                    <strong>Vehicle Number</strong>
+                    <span><asp:Label ID="lblVehicle" runat="server"></asp:Label></span>
                 </div>
 
-                <div class="proof-box">
-                    <h3 style="margin-bottom:14px;font-size:16px;font-weight:950;color:#0f172a;">Proof Image</h3>
-                    <asp:Image ID="imgProof" runat="server" Width="450px" />
+                <div class="report-item">
+                    <strong>Location</strong>
+                    <span><asp:Label ID="lblLocation" runat="server"></asp:Label></span>
                 </div>
 
-                <label class="admin-label">Fine Amount</label>
-                <asp:TextBox ID="txtFine" runat="server" CssClass="admin-input" Placeholder="Enter Fine Amount"></asp:TextBox>
+                <div class="report-item">
+                    <strong>Description</strong>
+                    <span><asp:Label ID="Descrip" runat="server"></asp:Label></span>
+                </div>
 
-                <label class="admin-label">Status</label>
-                <asp:DropDownList ID="ddlStatus" runat="server" CssClass="admin-dropdown">
-                    <asp:ListItem>Pending</asp:ListItem>
-                    <asp:ListItem>Approved</asp:ListItem>
-                    <asp:ListItem>Rejected</asp:ListItem>
-                </asp:DropDownList>
-
-                <asp:Button ID="btnUpdate" runat="server"
-                    CssClass="admin-btn"
-                    Text="Update Status"
-                    OnClick="btnUpdate_Click" />
-
-                <asp:Label ID="lblMsg" runat="server" CssClass="admin-msg"></asp:Label>
+                <div class="report-item">
+                    <strong>Violation</strong>
+                    <span><asp:Label ID="lblViolation" runat="server"></asp:Label></span>
+                </div>
 
             </div>
+
+            <div class="proof-box">
+                <h3 style="margin-bottom:12px;">Proof Image</h3>
+                <asp:Image ID="imgProof" runat="server" Width="300px" />
+            </div>
+
+            <label class="admin-label">Fine Amount</label>
+            <asp:TextBox ID="txtFine" runat="server" CssClass="admin-input"></asp:TextBox>
+
+            <label class="admin-label">Status</label>
+            <asp:DropDownList ID="ddlStatus" runat="server" CssClass="admin-dropdown">
+                <asp:ListItem>Pending</asp:ListItem>
+                <asp:ListItem>Approved</asp:ListItem>
+                <asp:ListItem>Rejected</asp:ListItem>
+            </asp:DropDownList>
+
+            <asp:Button ID="btnUpdate" runat="server"
+                Text="Update Status"
+                CssClass="admin-btn"
+                OnClick="btnUpdate_Click" />
+
+            <asp:Label ID="lblMsg" runat="server" CssClass="admin-msg"></asp:Label>
 
         </div>
 

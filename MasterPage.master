@@ -4,6 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>
         <asp:ContentPlaceHolder ID="TitleContent" runat="server"></asp:ContentPlaceHolder>
     </title>
@@ -27,20 +29,18 @@
                 Traffic Violation System
             </div>
 
-           <div class="nav-links">
-                <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <label for="nav-toggle" class="hamburger">&#9776;</label>
 
+            <div class="nav-links">
+                <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Citizen/Home.aspx">Home</asp:HyperLink>
                 <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/Citizen/Login.aspx">Login</asp:HyperLink>
-
                 <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Citizen/Register.aspx">Register</asp:HyperLink>
-
                 <asp:HyperLink ID="lnkReports" runat="server" NavigateUrl="~/Citizen/MyReports.aspx">MyReports</asp:HyperLink>
-
                 <asp:HyperLink ID="lnkReport" runat="server" NavigateUrl="~/Citizen/ReportViolation.aspx">Report</asp:HyperLink>
 
-               <asp:LinkButton ID="lnkLogout" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
+                <asp:LinkButton ID="lnkLogout" runat="server" CssClass="logout-link" OnClick="Logout_Click">Logout</asp:LinkButton>
             </div>
-
         </div>
 
         <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
