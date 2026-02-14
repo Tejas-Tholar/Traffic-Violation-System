@@ -6,11 +6,12 @@
 
 body {
     font-family: "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top left, #38bdf8, #0f172a 60%, #020617);
+    background: radial-gradient(circle at top left, #1f2937, #0b1220 70%, #05070d);
     min-height: 100vh;
     overflow-x: hidden;
     color: white;
 }
+
 
 /* IMPORTANT FIX: INPUTS NOT WORKING */
 .bg-shape1, .bg-shape2, .bg-shape3 {
@@ -26,7 +27,7 @@ body {
     height: 420px;
     top: -180px;
     left: -180px;
-    background: rgba(56, 189, 248, 0.45);
+    background: rgba(250, 204, 21, 0.55);
 }
 
 .bg-shape2 {
@@ -34,7 +35,7 @@ body {
     height: 520px;
     bottom: -200px;
     right: -200px;
-    background: rgba(34, 197, 94, 0.35);
+    background: rgba(239, 68, 68, 0.50);
 }
 
 .bg-shape3 {
@@ -42,7 +43,7 @@ body {
     height: 340px;
     top: 55%;
     left: 55%;
-    background: rgba(168, 85, 247, 0.25);
+    background: rgba(56, 189, 248, 0.25);
 }
 
 form {
@@ -50,42 +51,46 @@ form {
     z-index: 5;
 }
 
-/* NAVBAR */
+/* ===========================
+   NAVBAR (FIXED ONLY)
+   =========================== */
+
 .navbar {
     width: 100%;
-    padding: 18px 50px;
+    padding: 12px 50px; /* reduced height */
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center; /* perfect vertical alignment */
     background: rgba(255,255,255,0.06);
     border-bottom: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(18px);
+    height: 70px; /* fixed navbar height */
+    box-sizing: border-box;
 }
 
-.brand {
-    font-size: 18px;
-    font-weight: 950;
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 10px;
-    position: relative;
-    left: -20px; /* moves left */
-    top: -12px; /* moves down */
-}
 
-.brand-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #38bdf8, #22c55e);
-    box-shadow: 0px 0px 14px rgba(56,189,248,0.9);
-}
-
+/* FIXED NAV LINKS */
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 22px;
 }
 
+    /* FIXED ALL NAV ITEMS ALIGNMENT */
+    .nav-links a,
+    .nav-links .logout-btn,
+    .nav-links input,
+    .nav-links button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 38px;
+        padding: px 14px;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+
+    /* FIXED NAV LINK STYLE */
     .nav-links a {
         text-decoration: none;
         color: rgba(255,255,255,0.8);
@@ -98,6 +103,27 @@ form {
             color: white;
             text-shadow: 0px 0px 12px rgba(56,189,248,0.7);
         }
+
+/* FIXED BRAND */
+.brand {
+    font-size: 18px;
+    font-weight: 950;
+    display: inline-flex;
+    align-items: center; /* FIXED */
+    gap: 10px;
+    position: relative;
+    left: -10px; /* FIXED: less left shift */
+    top: 0px; /* FIXED */
+}
+
+.brand-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #0b1220, #0b1220 6px, #facc15 6px, #facc15 12px);
+    box-shadow: 0px 0px 14px rgba(250,204,21,0.55);
+}
+
 
 /* HOME PAGE */
 .home-hero {
@@ -130,9 +156,10 @@ form {
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #22c55e, #38bdf8);
-        box-shadow: 0px 0px 14px rgba(34,197,94,0.8);
+        background: #facc15;
+        box-shadow: 0px 0px 14px rgba(250,204,21,0.8);
     }
+
 
 .home-left h1 {
     margin-top: 20px;
@@ -143,7 +170,7 @@ form {
 }
 
     .home-left h1 strong {
-        background: linear-gradient(135deg, #38bdf8, #22c55e);
+        background: linear-gradient(135deg, #facc15, #ef4444);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -222,11 +249,12 @@ form {
     cursor: pointer;
     font-size: 15px;
     font-weight: 950;
-    color: white;
-    background: linear-gradient(135deg, #38bdf8, #22c55e);
-    box-shadow: 0px 20px 50px rgba(0,0,0,0.25);
+    color: #0b1220;
+    background: linear-gradient(135deg, #facc15, #fde047);
+    box-shadow: 0px 18px 45px rgba(250,204,21,0.25);
     transition: 0.2s;
 }
+
 
     .home-btn:hover {
         transform: translateY(-2px);
@@ -297,9 +325,10 @@ form {
 }
 
     .input-box:focus {
-        border-color: rgba(56,189,248,0.8);
-        box-shadow: 0px 0px 14px rgba(56,189,248,0.25);
+        border-color: rgba(250, 204, 21, 0.95);
+        box-shadow: 0px 0px 0px 4px rgba(250,204,21,0.18);
     }
+
 
 .btn-main {
     width: 100%;
@@ -310,10 +339,11 @@ form {
     font-size: 15px;
     font-weight: 950;
     cursor: pointer;
-    color: white;
-    background: linear-gradient(135deg, #38bdf8, #22c55e);
+    color: #0b1220;
+    background: linear-gradient(135deg, #facc15, #fde047);
     transition: 0.2s;
 }
+
 
     .btn-main:hover {
         transform: translateY(-2px);
@@ -355,7 +385,7 @@ form {
 }
 
     .link-text a {
-        color: #38bdf8;
+        color: #facc15;
         font-weight: 950;
         text-decoration: none;
     }
@@ -384,13 +414,14 @@ form {
     }
 
     .navbar {
-        padding: 16px 18px;
+        padding: 14px 15px;
     }
 
     .nav-links {
         display: none;
     }
 }
+
 @media(max-width: 600px) {
 
     .home-left h1 {
@@ -433,7 +464,7 @@ form {
     }
 
     .navbar {
-        flex-direction: ;
+        flex-direction:;
         gap: 10px;
         padding: 15px 15px;
         text-align: center;
@@ -443,6 +474,7 @@ form {
         justify-content: center;
     }
 }
+
 .nav-toggle {
     display: none;
 }
