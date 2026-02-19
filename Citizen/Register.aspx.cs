@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text.RegularExpressions; 
 
 namespace Traffic_Violation_Detection_System
 {
@@ -8,54 +14,70 @@ namespace Traffic_Violation_Detection_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserID"] != null)
-            {
-                Response.Redirect("~/Citizen/Home.aspx");
-            }
         }
+
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(txtEmail.Text.Trim(), emailPattern))
+            {
+                lblMsg.Text = "Please Enter a Valid Email Address!";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
             if (txtPassword.Text != txtConfirm.Text)
             {
                 lblMsg.Text = "Passwords do not match";
+                lblMsg.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
+            string connString = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
-            con.Open();
-
-            
-            string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email=@e";
-            SqlCommand checkCmd = new SqlCommand(checkQuery, con);
-            checkCmd.Parameters.AddWithValue("@e", txtEmail.Text);
-
-            int exists = (int)checkCmd.ExecuteScalar();
-
-            if (exists > 0)
+            using (SqlConnection con = new SqlConnection(connString))
             {
-                lblMsg.Text = "Email already registered!";
-                con.Close();
-                return;
+                con.Open();
+
+                string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email=@e";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@e", txtEmail.Text.Trim());
+                    int exists = (int)checkCmd.ExecuteScalar();
+
+                    if (exists > 0)
+                    {
+                        lblMsg.Text = "Email already registered!";
+                        lblMsg.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                }
+
+                string insertQuery = @"INSERT INTO Users(Name, Email, Password, Role) 
+                                     VALUES(@n, @e, @p, 'Citizen');
+                                     SELECT SCOPE_IDENTITY();";
+
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@n", txtName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@e", txtEmail.Text.Trim());
+                    cmd.Parameters.AddWithValue("@p", txtPassword.Text); 
+
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        int newUserId = Convert.ToInt32(result);
+                        Session["UserID"] = newUserId;
+                        Response.Redirect("ReportViolation.aspx");
+                    }
+                    else
+                    {
+                        lblMsg.Text = "Registration failed. Please try again.";
+                    }
+                }
             }
-
-     
-            string q = @"INSERT INTO Users(Name, Email, Password, Role)
-                 VALUES(@n,@e,@p,'Citizen');
-                 SELECT SCOPE_IDENTITY();";
-
-            SqlCommand cmd = new SqlCommand(q, con);
-            cmd.Parameters.AddWithValue("@n", txtName.Text);
-            cmd.Parameters.AddWithValue("@e", txtEmail.Text);
-            cmd.Parameters.AddWithValue("@p", txtPassword.Text);
-
-            int newUserId = Convert.ToInt32(cmd.ExecuteScalar());
-            con.Close();
-
-            Session["UserID"] = newUserId;
-            Response.Redirect("ReportViolation.aspx");
         }
-
     }
 }

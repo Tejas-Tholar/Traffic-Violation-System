@@ -89,7 +89,7 @@ namespace Traffic_Violation_Detection_System
                     string query = @"INSERT INTO Reports
                                     (VehicleNo, Location, ViolationType, Description, ProofPath, Status,UserID)
                                     VALUES
-                                    (@VehicleNo, @Location, @ViolationType, @Description, @ProofPath, 'Pending')";
+                                    (@VehicleNo, @Location, @ViolationType, @Description, @ProofPath, 'Pending',@uid)";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -98,6 +98,7 @@ namespace Traffic_Violation_Detection_System
                         cmd.Parameters.AddWithValue("@ViolationType", violations);
                         cmd.Parameters.AddWithValue("@Description", description);
                         cmd.Parameters.AddWithValue("@ProofPath", dbPath);
+                        cmd.Parameters.AddWithValue("@uid", Session["UserID"]);
 
                         con.Open();
                         cmd.ExecuteNonQuery();

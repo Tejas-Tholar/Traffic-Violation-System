@@ -17,6 +17,8 @@ Register
 
             <asp:TextBox ID="txtEmail" runat="server" CssClass="input-box" Placeholder="Email Address"></asp:TextBox>
 
+            <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please Enter Email Correctly!"></asp:CustomValidator>
+
             <asp:TextBox ID="txtPassword" runat="server" CssClass="input-box" TextMode="Password" Placeholder="Password"></asp:TextBox>
 
             <asp:TextBox ID="txtConfirm" runat="server" CssClass="input-box" TextMode="Password" Placeholder="Confirm Password"></asp:TextBox>
