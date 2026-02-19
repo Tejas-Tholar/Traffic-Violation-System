@@ -359,7 +359,7 @@ body {
         padding: 16px 18px;
     }
 
-    /* Hide normal menu */
+   
     .citizen-links {
         display: none;
         flex-direction: column;
@@ -378,7 +378,7 @@ body {
         z-index: 99999;
     }
 
-    /* Hamburger perfectly inside navbar */
+    
     .citizen-hamburger {
         display: flex;
         justify-content: center;
@@ -397,12 +397,12 @@ body {
         z-index: 100000;
     }
 
-    /* Show menu when checked */
+   
     #citizen-toggle:checked ~ .citizen-links {
         display: flex;
     }
 
-    /* Logout full width */
+    
     .logout-link {
         width: 100%;
         text-align: center;

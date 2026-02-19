@@ -9,70 +9,70 @@
 </head>
 <body>
 
-    <div class="admin-bg1"></div>
-    <div class="admin-bg2"></div>
-    <div class="admin-bg3"></div>
+    <div class="admin-bg1" runat="server"></div>
+    <div class="admin-bg2" runat="server"></div>
+    <div class="admin-bg3" runat="server"></div>
 
-    <div class="admin-navbar">
+    <div class="admin-navbar" runat="server">
 
-        <div class="admin-brand">
-            <span></span>
+        <div class="admin-brand" runat="server">
+            <span runat="server"></span>
             Admin Panel
         </div>
 
-        <input type="checkbox" id="admin-toggle" class="admin-toggle" />
-        <label for="admin-toggle" class="admin-hamburger">&#9776;</label>
+        <input type="checkbox" id="Checkbox1" class="admin-toggle" runat="server" />
+        <label for="admin-toggle" class="admin-hamburger" runat="server">&#9776;</label>
 
-        <div class="admin-links">
-            <a href="AdminDashboard.aspx">Dashboard</a>
-            <a href="ViewReports.aspx">Reports</a>
-            <a href="AdminLogout.aspx" class="admin-logout">Logout</a>
+        <div class="admin-links" runat="server">
+            <a href="AdminDashboard.aspx" runat="server">Dashboard</a>
+            <a href="ViewReports.aspx" runat="server">Reports</a>
+            <a href="AdminLogout.aspx" class="admin-logout" runat="server">Logout</a>
         </div>
 
     </div>
 
     <form id="form1" runat="server" class="admin-page">
 
-        <div class="dashboard-container">
+        <div class="dashboard-container" runat="server">
 
-            <div class="dashboard-header">
-                <h2>Dashboard Statistics</h2>
-                <p>Live overview of violation reports, pending cases and fine collection.</p>
+            <div class="dashboard-header" runat="server">
+                <h2 runat="server">Dashboard Statistics</h2>
+                <p runat="server">Live overview of violation reports, pending cases and fine collection.</p>
             </div>
 
-            <div class="stats-grid">
+            <div class="stats-grid" runat="server">
 
-                <div class="stat-card blue">
-                    <div class="stat-title">Total Reports</div>
-                    <div class="stat-value">
+                <div class="stat-card blue" runat="server">
+                    <div class="stat-title" runat="server">Total Reports</div>
+                    <div class="stat-value" runat="server">
                         <asp:Label ID="lblTotal" runat="server"></asp:Label>
                     </div>
                 </div>
 
-                <div class="stat-card yellow">
-                    <div class="stat-title">Pending</div>
-                    <div class="stat-value">
+                <div class="stat-card yellow" runat="server">
+                    <div class="stat-title" runat="server">Pending</div>
+                    <div class="stat-value" runat="server">
                         <asp:Label ID="lblPending" runat="server"></asp:Label>
                     </div>
                 </div>
 
-                <div class="stat-card green">
-                    <div class="stat-title">Approved</div>
-                    <div class="stat-value">
+                <div class="stat-card green" runat="server">
+                    <div class="stat-title" runat="server">Approved</div>
+                    <div class="stat-value" runat="server">
                         <asp:Label ID="lblApproved" runat="server"></asp:Label>
                     </div>
                 </div>
 
-                <div class="stat-card red">
-                    <div class="stat-title">Rejected</div>
-                    <div class="stat-value">
+                <div class="stat-card red" runat="server">
+                    <div class="stat-title" runat="server">Rejected</div>
+                    <div class="stat-value" runat="server">
                         <asp:Label ID="lblRejected" runat="server"></asp:Label>
                     </div>
                 </div>
 
-                <div class="stat-card full">
-                    <div class="stat-title">Total Fine Collected</div>
-                    <div class="stat-value">
+                <div class="stat-card full" runat="server">
+                    <div class="stat-title" runat="server">Total Fine Collected</div>
+                    <div class="stat-value" runat="server">
                         ₹ <asp:Label ID="lblFineTotal" runat="server"></asp:Label>
                     </div>
                 </div>

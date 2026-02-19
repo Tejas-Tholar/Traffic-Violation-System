@@ -11,36 +11,36 @@
 </head>
 <body>
 
-    <div class="admin-bg1"></div>
-    <div class="admin-bg2"></div>
-    <div class="admin-bg3"></div>
+    <div class="admin-bg1" runat="server"></div>
+    <div class="admin-bg2" runat="server"></div>
+    <div class="admin-bg3" runat="server"></div>
 
-    <div class="admin-navbar">
+    <div class="admin-navbar" runat="server">
 
-        <div class="admin-brand">
-            <span></span>
+        <div class="admin-brand" runat="server">
+            <span runat="server"></span>
             Admin Panel
         </div>
 
-        <input type="checkbox" id="admin-toggle" class="admin-toggle" />
-        <label for="admin-toggle" class="admin-hamburger">&#9776;</label>
+        <input type="checkbox" id="Checkbox1" class="admin-toggle" runat="server" />
+        <label for="admin-toggle" class="admin-hamburger" runat="server">&#9776;</label>
 
-        <div class="admin-links">
-            <a href="AdminDashboard.aspx">Dashboard</a>
-            <a href="ViewReports.aspx">Reports</a>
-            <a href="AdminLogout.aspx" class="admin-logout">Logout</a>
+        <div class="admin-links" runat="server">
+            <a href="AdminDashboard.aspx" runat="server">Dashboard</a>
+            <a href="ViewReports.aspx" runat="server">Reports</a>
+            <a href="AdminLogout.aspx" class="admin-logout" runat="server">Logout</a>
         </div>
 
     </div>
 
     <form runat="server" class="admin-page">
 
-        <div class="admin-card">
+        <div class="admin-card" runat="server">
 
-            <h2>All Violation Reports</h2>
-            <p>View all citizen submitted reports and take action.</p>
+            <h2 runat="server">All Violation Reports</h2>
+            <p runat="server">View all citizen submitted reports and take action.</p>
 
-            <div class="admin-table-box">
+            <div class="admin-table-box" runat="server">
 
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="admin-table">
                     <Columns>

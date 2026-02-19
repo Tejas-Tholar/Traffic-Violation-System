@@ -9,42 +9,57 @@
 </head>
 <body>
 
-    <div class="citizen-bg1"></div>
-    <div class="citizen-bg2"></div>
-    <div class="citizen-bg3"></div>
-
     <form runat="server">
 
+        <asp:Panel ID="bg1" runat="server" CssClass="citizen-bg1"></asp:Panel>
+        <asp:Panel ID="bg2" runat="server" CssClass="citizen-bg2"></asp:Panel>
+        <asp:Panel ID="bg3" runat="server" CssClass="citizen-bg3"></asp:Panel>
+
         <!-- NAVBAR -->
-        <div class="citizen-navbar">
+        <asp:Panel ID="navbar" runat="server" CssClass="citizen-navbar">
 
-            <div class="citizen-brand">
-                <span></span> Citizen Portal
-            </div>
+            <asp:Panel ID="brand" runat="server" CssClass="citizen-brand">
+                <asp:Label ID="brandDot" runat="server"></asp:Label>
+                Citizen Portal
+            </asp:Panel>
 
-            <!-- HAMBURGER -->
-            <input type="checkbox" id="citizen-toggle" class="citizen-toggle" />
-            <label for="citizen-toggle" class="citizen-hamburger">&#9776;</label>
+            <!-- HAMBURGER (ASP.NET) -->
+            <asp:CheckBox ID="citizenToggle" runat="server" CssClass="citizen-toggle" />
+
+            <asp:Label ID="hamburger" runat="server" CssClass="citizen-hamburger" AssociatedControlID="citizenToggle">
+                &#9776;
+            </asp:Label>
 
             <!-- LINKS -->
-            <div class="citizen-links">
-                <a href="Home.aspx">Home</a>
-                <a href="ReportViolation.aspx">Report</a>
-                <a href="MyReports.aspx">My Reports</a>
-                <a href="../Citizen/Login.aspx" class="logout-link">Logout</a>
-            </div>
+            <asp:Panel ID="navLinks" runat="server" CssClass="citizen-links">
 
-        </div>
+                <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="Home.aspx" Text="Home"></asp:HyperLink>
+
+                <asp:HyperLink ID="lnkReport" runat="server" NavigateUrl="ReportViolation.aspx" Text="Report"></asp:HyperLink>
+
+                <asp:HyperLink ID="lnkMyReports" runat="server" NavigateUrl="MyReports.aspx" Text="My Reports"></asp:HyperLink>
+
+                <asp:HyperLink ID="lnkLogout" runat="server" NavigateUrl="../Citizen/Login.aspx" CssClass="logout-link" Text="Logout"></asp:HyperLink>
+
+            </asp:Panel>
+
+        </asp:Panel>
 
         <!-- PAGE CONTENT -->
-        <div class="citizen-page">
+        <asp:Panel ID="citizenPage" runat="server" CssClass="citizen-page">
 
-            <h2 style="margin:0;font-size:30px;font-weight:950;">My Reports</h2>
-            <p style="margin-top:10px;color:rgba(255,255,255,0.75);font-size:14px;">
-                View all your submitted reports with current status and fine amount.
-            </p>
+            <asp:Label ID="lblTitle" runat="server"
+                Text="My Reports"
+                Style="margin:0;font-size:30px;font-weight:950;display:block;">
+            </asp:Label>
 
-            <div class="table-box">
+            <asp:Label ID="lblDesc" runat="server"
+                Text="View all your submitted reports with current status and fine amount."
+                Style="margin-top:10px;color:rgba(255,255,255,0.75);font-size:14px;display:block;">
+            </asp:Label>
+
+            <asp:Panel ID="tableBox" runat="server" CssClass="table-box">
+
                 <asp:GridView ID="GridView1" runat="server"
                     AutoGenerateColumns="true"
                     CssClass="report-table"
@@ -52,9 +67,10 @@
                     RowStyle-CssClass="table-row"
                     AlternatingRowStyle-CssClass="table-alt-row">
                 </asp:GridView>
-            </div>
 
-        </div>
+            </asp:Panel>
+
+        </asp:Panel>
 
     </form>
 

@@ -11,24 +11,24 @@
 <body>
 
     <!-- BACKGROUND -->
-    <div class="admin-bg1"></div>
-    <div class="admin-bg2"></div>
-    <div class="admin-bg3"></div>
+    <div class="admin-bg1" runat="server"></div>
+    <div class="admin-bg2" runat="server"></div>
+    <div class="admin-bg3" runat="server"></div>
 
     <!-- NAVBAR -->
-    <div class="admin-navbar">
+    <div class="admin-navbar" runat="server">
 
-        <div class="admin-brand">
-            <span></span>
+        <div class="admin-brand" runat="server">
+            <span runat="server"></span>
             Admin Panel
         </div>
 
         <!-- HAMBURGER TOGGLE -->
-        <input type="checkbox" id="admin-toggle" class="admin-toggle" />
-        <label for="admin-toggle" class="admin-hamburger">&#9776;</label>
+        <input type="checkbox" id="Checkbox1" class="admin-toggle" runat="server" />
+        <label for="admin-toggle" class="admin-hamburger" runat="server">&#9776;</label>
 
-        <div class="admin-links">
-            <a href="AdminLogin.aspx">Login</a>
+        <div class="admin-links" runat="server">
+            <a href="AdminLogin.aspx" runat="server">Login</a>
         </div>
 
     </div>
@@ -36,21 +36,21 @@
     <!-- PAGE CONTENT -->
     <form id="form1" runat="server" class="admin-page">
 
-        <div class="admin-login">
+        <div class="admin-login" runat="server">
 
-            <div class="traffic-signal">
-                <div class="signal-light red"></div>
-                <div class="signal-light yellow"></div>
-                <div class="signal-light green"></div>
+            <div class="traffic-signal" runat="server">
+                <div class="signal-light red" runat="server"></div>
+                <div class="signal-light yellow" runat="server"></div>
+                <div class="signal-light green" runat="server"></div>
             </div>
 
-            <h2>Admin Login</h2>
-            <p>Login to manage reports and issue fines.</p>
+            <h2 runat="server">Admin Login</h2>
+            <p runat="server">Login to manage reports and issue fines.</p>
 
-            <label class="admin-label">Username</label>
+            <label class="admin-label" runat="server">Username</label>
             <asp:TextBox ID="txtUser" runat="server" CssClass="admin-input"></asp:TextBox>
 
-            <label class="admin-label">Password</label>
+            <label class="admin-label" runat="server">Password</label>
             <asp:TextBox ID="txtPass" runat="server" CssClass="admin-input" TextMode="Password"></asp:TextBox>
 
             <asp:Button ID="btnLogin" runat="server" CssClass="admin-btn"

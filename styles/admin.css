@@ -12,7 +12,7 @@ body {
     overflow-x: hidden;
 }
 
-/* BACKGROUND TRAFFIC SHAPES */
+
 .admin-bg1, .admin-bg2, .admin-bg3 {
     position: fixed;
     border-radius: 50%;
@@ -96,7 +96,7 @@ body {
             color: white;
         }
 
-/* PAGE WRAPPER */
+
 .admin-page {
     padding: 60px 20px;
     display: flex;
@@ -104,7 +104,7 @@ body {
     align-items: center;
 }
 
-/* CARD */
+
 .admin-card {
     width: 100%;
     max-width: 100%;
@@ -167,7 +167,7 @@ body {
         line-height: 1.7;
     }
 
-/* LABEL */
+
 .admin-label {
     display: block;
     margin-top: 18px;
@@ -176,7 +176,7 @@ body {
     color: rgba(255,255,255,0.78);
 }
 
-/* INPUTS */
+
 .admin-input, .admin-dropdown {
     width: 100%;
     padding: 14px 14px;
@@ -201,7 +201,7 @@ body {
         background: rgba(255,255,255,0.07);
     }
 
-/* DROPDOWN FIX */
+
 .admin-dropdown {
     background: rgba(15, 23, 42, 0.95) !important;
     color: white !important;
@@ -220,7 +220,7 @@ body {
         font-weight: 900 !important;
     }
 
-/* BUTTON */
+
 .admin-btn {
     width: 100%;
     padding: 14px;
@@ -241,7 +241,7 @@ body {
         opacity: 0.97;
     }
 
-/* MESSAGE */
+
 .admin-msg {
     display: block;
     margin-top: 16px;
@@ -250,7 +250,7 @@ body {
     color: #22c55e;
 }
 
-/* TABLE BOX (HORIZONTAL SCROLL ONLY) */
+
 .admin-table-box {
     width: 100%;
     overflow-x: auto;
@@ -541,10 +541,7 @@ body {
         grid-column: span 1;
     }
 }
-/* ===========================
-   MOBILE RESPONSIVE ADDON
-   (DO NOT CHANGE OLD CSS)
-   =========================== */
+
 
 @media (max-width: 1024px) {
 
@@ -579,7 +576,7 @@ body {
 
 @media (max-width: 768px) {
 
-    /* Navbar stack */
+    
     .admin-navbar {
         flex-direction: column;
         gap: 12px;
@@ -598,12 +595,12 @@ body {
             padding: 6px 10px;
         }
 
-    /* Page spacing */
+    
     .admin-page {
         padding: 40px 14px;
     }
 
-    /* Cards full width */
+    
     .admin-card,
     .admin-login,
     .admin-action {
@@ -612,7 +609,7 @@ body {
         padding: 26px !important;
     }
 
-        /* Title smaller */
+       
         .admin-card h2 {
             font-size: 24px;
         }
@@ -621,12 +618,12 @@ body {
             font-size: 13px;
         }
 
-    /* Grid 1 column */
+   
     .report-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Table scroll smooth */
+   
     .admin-table-box {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -636,7 +633,7 @@ body {
         min-width: 800px;
     }
 
-    /* Dashboard */
+
     .dashboard-container {
         padding: 18px;
     }
@@ -653,7 +650,6 @@ body {
         font-size: 28px;
     }
 
-    /* Traffic signal reposition */
     .traffic-signal {
         top: 14px;
         right: 14px;
