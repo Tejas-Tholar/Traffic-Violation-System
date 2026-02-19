@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Reflection.Emit;
-using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 
 namespace Traffic_Violation_Detection_System
 {
-    public partial class ReportViolation : System.Web.UI.Page
+    public partial class ReportViolation : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,58 +15,114 @@ namespace Traffic_Violation_Detection_System
                 Response.Redirect("~/Citizen/Login.aspx");
             }
         }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Save uploaded file
-            string path = "Uploads/" + FileUpload1.FileName;
-            FileUpload1.SaveAs(Server.MapPath(path));
+            lblUploadError.Text = "";
+            lblMsg.Text = "";
 
-            // Collect selected violations
-            string violations = "";
-            foreach (ListItem item in cblViolation.Items)
+            if (!FileUpload1.HasFile)
             {
-                if (item.Selected)
-                    violations += item.Text + ", ";
+                lblUploadError.Text = "Please upload proof file.";
+                return;
             }
 
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
+            string extension = Path.GetExtension(FileUpload1.FileName).ToLower();
+            string contentType = FileUpload1.PostedFile.ContentType;
+            int fileSize = FileUpload1.PostedFile.ContentLength;
 
-            string q = @"INSERT INTO Reports
-                        (VehicleNo, Location, ViolationType,
-                         Description, ProofPath, Status, UserID)
-                        VALUES
-                        (@v, @l, @t, @d, @p, 'Pending', @uid)";
+            bool isVideo = (extension == ".mp4" && contentType == "video/mp4");
+            bool isImage = (extension == ".jpg" || extension == ".jpeg" || extension == ".png");
 
-            SqlCommand cmd = new SqlCommand(q, con);
+            if (!(isVideo || isImage))
+            {
+                lblUploadError.Text = "Only MP4, JPG, JPEG, PNG files are allowed.";
+                return;
+            }
 
-            cmd.Parameters.AddWithValue("@v", txtVehicleNo.Text);
-            cmd.Parameters.AddWithValue("@l", txtLocation.Text);
-            cmd.Parameters.AddWithValue("@t", violations);
-            cmd.Parameters.AddWithValue("@d", txtDescription.Text);
-            cmd.Parameters.AddWithValue("@p", path);
-            cmd.Parameters.AddWithValue("@uid", Session["UserID"]);
+            if (fileSize > 20 * 1024 * 1024)
+            {
+                lblUploadError.Text = "File must be less than 20MB.";
+                return;
+            }
 
+            try
+            {
+                
+                string fileName = Guid.NewGuid().ToString() + extension;
 
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+                // ===== Create Upload Folder If Not Exists =====
+                string folderPath = Server.MapPath("~/Citizen/Uploads/");
 
-            lblMsg.Text = "Report submitted successfully!";
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
 
-            // Clear fields
+                string fullPath = Path.Combine(folderPath, fileName);
+
+                // ===== Save File =====
+                FileUpload1.SaveAs(fullPath);
+
+                string dbPath = "Uploads/" + fileName;
+
+                // ===== Collect Form Data =====
+                string vehicleNo = txtVehicleNo.Text.Trim();
+                string location = txtLocation.Text.Trim();
+                string description = txtDescription.Text.Trim();
+
+                string violations = "";
+                foreach (System.Web.UI.WebControls.ListItem item in cblViolation.Items)
+                {
+                    if (item.Selected)
+                    {
+                        violations += item.Text + ", ";
+                    }
+                }
+
+                violations = violations.TrimEnd(',', ' ');
+
+                // ===== Insert Into Database =====
+                using (SqlConnection con = new SqlConnection(
+                    ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString))
+                {
+                    string query = @"INSERT INTO Reports
+                                    (VehicleNo, Location, ViolationType, Description, ProofPath, Status,UserID)
+                                    VALUES
+                                    (@VehicleNo, @Location, @ViolationType, @Description, @ProofPath, 'Pending')";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@VehicleNo", vehicleNo);
+                        cmd.Parameters.AddWithValue("@Location", location);
+                        cmd.Parameters.AddWithValue("@ViolationType", violations);
+                        cmd.Parameters.AddWithValue("@Description", description);
+                        cmd.Parameters.AddWithValue("@ProofPath", dbPath);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                lblMsg.Text = "Report submitted successfully!";
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                lblUploadError.Text = "Error: " + ex.Message;
+            }
+        }
+
+        private void ClearForm()
+        {
             txtVehicleNo.Text = "";
             txtLocation.Text = "";
             txtDescription.Text = "";
 
-            // Clear checkbox selections
-            foreach (ListItem item in cblViolation.Items)
+            foreach (System.Web.UI.WebControls.ListItem item in cblViolation.Items)
             {
                 item.Selected = false;
             }
-
-
-
         }
     }
 }

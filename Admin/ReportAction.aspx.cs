@@ -8,14 +8,16 @@ namespace Traffic_Violation_Detection_System.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-                LoadReport();
-
             if (Session["AdminID"] == null)
             {
                 Response.Redirect("AdminLogin.aspx");
+                return;
             }
 
+            if (!IsPostBack)
+            {
+                LoadReport();
+            }
         }
 
         void LoadReport()
@@ -23,27 +25,43 @@ namespace Traffic_Violation_Detection_System.Admin
             string id = Request.QueryString["id"];
             if (string.IsNullOrEmpty(id)) return;
 
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
-
-            string q = "SELECT * FROM Reports WHERE ReportId=@id";
-            SqlCommand cmd = new SqlCommand(q, con);
-            cmd.Parameters.AddWithValue("@id", id);
-
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            using (SqlConnection con = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString))
             {
-                lblVehicle.Text = dr["VehicleNo"].ToString();
-                lblLocation.Text = dr["Location"].ToString();
-                Descrip.Text = dr["Description"].ToString();
-                lblViolation.Text = dr["ViolationType"].ToString();
-                imgProof.ImageUrl = "../Citizen/" + dr["ProofPath"].ToString();
+                string q = "SELECT * FROM Reports WHERE ReportId=@id";
 
+                using (SqlCommand cmd = new SqlCommand(q, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        lblVehicle.Text = dr["VehicleNo"].ToString();
+                        lblLocation.Text = dr["Location"].ToString();
+                        Descrip.Text = dr["Description"].ToString();
+                        lblViolation.Text = dr["ViolationType"].ToString();
+
+                        string proofPath = dr["ProofPath"].ToString();
+                        string fullPath = ResolveUrl("../Citizen/" + proofPath);
+
+                        if (proofPath.EndsWith(".mp4"))
+                        {
+                            imgProof.Visible = false;
+                            vidProof.Visible = true;
+                            vidProof.Src = fullPath;
+                        }
+                        else
+                        {
+                            vidProof.Visible = false;
+                            imgProof.Visible = true;
+                            imgProof.ImageUrl = fullPath;
+                        }
+                    }
+                }
             }
-
-            con.Close();
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -56,30 +74,39 @@ namespace Traffic_Violation_Detection_System.Admin
                 return;
             }
 
-            SqlConnection con = new SqlConnection(
-                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString);
+            decimal fineAmount;
 
-            string q = "UPDATE Reports SET Status=@s, FineAmount=@f WHERE ReportId=@id";
+            // Validate Fine Amount
+            if (!decimal.TryParse(txtFine.Text, out fineAmount))
+            {
+                lblMsg.Text = "Enter valid fine amount.";
+                return;
+            }
 
-            // Create command FIRST
-            SqlCommand cmd = new SqlCommand(q, con);
+            using (SqlConnection con = new SqlConnection(
+                ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString))
+            {
+                string q = "UPDATE Reports SET Status=@s, FineAmount=@f WHERE ReportId=@id";
 
-            // Add parameters ONCE
-            cmd.Parameters.AddWithValue("@s", ddlStatus.Text);
-            cmd.Parameters.AddWithValue("@f", txtFine.Text);
-            cmd.Parameters.AddWithValue("@id", id);
+                using (SqlCommand cmd = new SqlCommand(q, con))
+                {
+                    cmd.Parameters.AddWithValue("@s", ddlStatus.Text);
+                    cmd.Parameters.AddWithValue("@f", fineAmount);
+                    cmd.Parameters.AddWithValue("@id", id);
 
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
-            lblMsg.Text = "Status Updated!";
+            lblMsg.Text = "Status Updated Successfully!";
         }
+
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("AdminDashboard.aspx");
-
         }
+
         protected void Logout_Click(object sender, EventArgs e)
         {
             Session.Clear();
@@ -88,7 +115,5 @@ namespace Traffic_Violation_Detection_System.Admin
 
             Response.Redirect("~/Citizen/Home.aspx");
         }
-
     }
 }
-

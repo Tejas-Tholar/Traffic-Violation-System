@@ -17,7 +17,6 @@
         <asp:Panel ID="bg2" runat="server" CssClass="citizen-bg2"></asp:Panel>
         <asp:Panel ID="bg3" runat="server" CssClass="citizen-bg3"></asp:Panel>
 
-        <!-- NAVBAR -->
         <asp:Panel ID="navbar" runat="server" CssClass="citizen-navbar">
 
             <asp:Panel ID="brand" runat="server" CssClass="citizen-brand">
@@ -25,7 +24,6 @@
                 Citizen Portal
             </asp:Panel>
 
-            <!-- HAMBURGER -->
             <asp:CheckBox ID="citizenToggle" runat="server"
                 CssClass="citizen-toggle"
                 ClientIDMode="Static" />
@@ -36,7 +34,6 @@
                 &#9776;
             </asp:Label>
 
-            <!-- LINKS -->
             <asp:Panel ID="citizenLinks" runat="server" CssClass="citizen-links">
 
                 <asp:HyperLink ID="lnkHome" runat="server"
@@ -60,7 +57,6 @@
 
         </asp:Panel>
 
-        <!-- PAGE CONTENT -->
         <asp:Panel ID="citizenPage" runat="server" CssClass="citizen-page">
 
             <asp:Panel ID="reportWrapper" runat="server" CssClass="report-wrapper">
@@ -180,6 +176,7 @@
                     <asp:Label ID="lblProof" runat="server" CssClass="white-label" Text="Upload Proof"></asp:Label>
 
                     <asp:FileUpload ID="FileUpload1" runat="server" CssClass="white-file" />
+                    <asp:Label ID="lblUploadError" runat="server" ForeColor="Red"></asp:Label>
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                         ControlToValidate="FileUpload1"

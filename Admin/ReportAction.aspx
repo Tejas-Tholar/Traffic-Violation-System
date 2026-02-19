@@ -67,6 +67,7 @@
             <div class="proof-box" runat="server">
                 <h3 style="margin-bottom:12px;" runat="server">Proof Image</h3>
                 <asp:Image ID="imgProof" runat="server" Width="300px" />
+                <video id="vidProof" runat="server" width="300" height="200" controls visible="false"></video>
             </div>
 
             <label class="admin-label" runat="server">Fine Amount</label>
