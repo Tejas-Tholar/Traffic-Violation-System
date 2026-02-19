@@ -83,9 +83,12 @@ namespace Traffic_Violation_Detection_System.Admin
         protected void Logout_Click(object sender, EventArgs e)
         {
             Session.Clear();
+            Session.RemoveAll();
             Session.Abandon();
+
             Response.Redirect("~/Citizen/Home.aspx");
         }
+
     }
 }
 

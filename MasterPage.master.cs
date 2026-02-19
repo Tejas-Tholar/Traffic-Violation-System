@@ -27,8 +27,11 @@ namespace Traffic_Violation_Detection_System
         protected void Logout_Click(object sender, EventArgs e)
         {
             Session.Clear();
+            Session.RemoveAll();
             Session.Abandon();
-            Response.Redirect("~/Home.aspx");
+
+            Response.Redirect("~/Citizen/Home.aspx");
         }
+
     }
 }
